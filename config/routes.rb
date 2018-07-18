@@ -14,7 +14,10 @@ Rails.application.routes.draw do
 
   resource :users do
     get :new
+  end
 
+  resource :login, :controller => "sessions" do
+    get :new
   end
 
   namespace :admin do
