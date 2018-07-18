@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get :new
   end
 
+  # using controller "sessions, but want the url to be /login"
   resource :login, :controller => "sessions" do
     get :new
   end
