@@ -8,16 +8,14 @@
     </tr>
   </thead>
   <tbody>
-
-<% @order.line_items.each do |item| %>
-<tr>
-  <td> <%= image_tag item.image.tiny  %></td>
-  <td> <%= item.product.name %> </td>
-  <td> <%= humanized_money_with_symbol(Money.new(item.product.price_cents)) %></td>
-  <td> <%= item.quantity %></td>
-  <td> <%= humanized_money_with_symbol(Money.new(item.quantity * item.product.price_cents)) %></td>
-</tr>
-<% end %>
-
-</tbody>
+    <% @order.line_items.each do |item| %>
+      <tr>
+        <td><%= image_tag item.image.tiny %></td>
+        <td><%= item.product.name %> </td>
+        <td><%= humanized_money_with_symbol(Money.new(item.product.price_cents)) %></td>
+        <td><%= item.quantity %></td>
+        <td><%= humanized_money_with_symbol(Money.new(item.quantity * item.product.price_cents)) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
