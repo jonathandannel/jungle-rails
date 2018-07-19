@@ -14,11 +14,17 @@ Rails.application.routes.draw do
 
   resource :users do
     get :new
+    post :create
   end
 
   # using controller "sessions, but want the url to be /login"
   resource :login, :controller => "sessions" do
     get :new
+    post :create
+  end
+
+  resource :logout, :controller => "sessions" do
+    get :destroyEmail
   end
 
   namespace :admin do
@@ -27,7 +33,7 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :new, :create]
   end
 
-  # The priority is based upon order of creation: first created -> highest priority.
+  # The 3000priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
