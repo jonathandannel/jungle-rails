@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thank you for your order!</h1>
+    <h1> Order Summary</h1>
+    <h2>Total: <%= humanized_money_with_symbol(Money.new(@order.total_cents)) %></h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Product Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |item| %>
+          <tr>
+            <td><%= image_tag item.image.tiny %></td>
+            <td><%= item.product.name %> </td>
+            <td><%= humanized_money_with_symbol(Money.new(item.product.price_cents)) %></td>
+            <td><%= item.quantity %></td>
+            <td><%= humanized_money_with_symbol(Money.new(item.quantity * item.product.price_cents)) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <p>Thank you!</p>
+  </body>
+</html>
