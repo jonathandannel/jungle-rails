@@ -8,7 +8,7 @@
     <h4>Thank you for your order!</h4>
   </div>
 
-  <div> <%= render partial: 'line_item', collection: @order.line_items %></div>
+  <div> <%= render partial: 'line_item', collection: @items%></div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
