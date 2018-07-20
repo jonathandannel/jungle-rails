@@ -26,6 +26,23 @@
       </div>
     </div>
 
+    <div style="margin-top: 35px; font-size: 10px;">
+      <% @product.reviews.each do |review| %>
+        <p> User: <%= review.user.first_name %> </p>
+        <p> Rating: <%= review.rating %> </p>
+        <p> Description: <%= review.description %> </p>
+        <hr>
+      <% end %>
+    </div>
+
+    <%= form_for [@product, @product.reviews.build] do |f| %>
+      <%= f.label :rating %>
+      <%= f.text_field :rating %>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+      <%= f.submit "Create" %>
+    <% end %>
+
   </article>
 
 </section>
